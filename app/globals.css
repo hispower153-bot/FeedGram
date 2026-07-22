@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Gothic A1", sans-serif;
+  --font-display: "Black Han Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-bg: #F6F3FF;
+  --color-ink: #1C1730;
+  --color-surface: #FFFFFF;
+  --color-border: #E4DCFF;
+  --color-muted: #8A80B0;
+  --color-muted-2: #B0A8D4;
+  --color-chip: #EDE7FF;
+  --color-primary: #7C5CFF;
+  --color-coral: #FF6B6B;
+  --color-sky: #4CC9F0;
+  --color-amber: #FFB84C;
+  --color-pink: #FF6FB5;
+  --color-mint: #38D9A9;
+  --color-lime: #C6F135;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: "Gothic A1", sans-serif;
+}
+
+.font-display {
+  font-family: "Black Han Sans", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+.font-mono-ui {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.fg-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.fg-scroll::-webkit-scrollbar-thumb { background: #D9D2FF; border-radius: 999px; }
+
+.fg-card { transition: transform .18s ease, box-shadow .18s ease; }
+.fg-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px -8px rgba(28,23,48,0.18); }
+
+@keyframes fg-pop { 0% { transform: scale(0.9); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.fg-pop { animation: fg-pop .25s ease; }
+
+@keyframes fg-spin-slow { to { transform: rotate(360deg); } }
+.fg-spin { animation: fg-spin-slow 1s linear infinite; }
+
+*:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fg-card, .fg-pop { animation: none !important; transition: none !important; }
+}
